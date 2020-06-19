@@ -4,7 +4,7 @@ import org.junit.Test;
 
 import java.util.Random;
 
-public class Selection {
+public class SelectionSort {
 
     public static void main(String[] args) {
         int[] arr = {7, 4, 2, 9, 1, 8, 12, -1, -44, 5};
@@ -52,8 +52,8 @@ public class Selection {
     private static void sortBySelection(int[] arr) {
         for (int i = 0; i < arr.length; i++) {
             int minPos = i;
-            for (int k = i + 1; k < arr.length; k++) {
-                minPos = arr[k] < arr[minPos] ? k : minPos;
+            for (int j = i + 1; j < arr.length; j++) {
+                minPos = arr[j] < arr[minPos] ? j : minPos;
             }
             swap(arr, i, minPos);
         }
@@ -68,8 +68,8 @@ public class Selection {
     private static void optSelection1(int[] arr) {
         for (int i = 0; i < arr.length - 1; i++) {
             int minPos = i;
-            for (int k = i + 1; k < arr.length; k++) {
-                minPos = arr[k] < arr[minPos] ? k : minPos;
+            for (int j = i + 1; j < arr.length; j++) {
+                minPos = arr[j] < arr[minPos] ? j : minPos;
             }
             swap(arr, i, minPos);
         }
@@ -84,8 +84,8 @@ public class Selection {
     private static void optSelection2(int[] arr) {
         for (int i = 0; i < arr.length - 1; i++) {
             int minPos = i;
-            for (int k = i + 1; k < arr.length; k++) {
-                minPos = arr[k] < arr[minPos] ? k : minPos;
+            for (int j = i + 1; j < arr.length; j++) {
+                minPos = arr[j] < arr[minPos] ? j : minPos;
             }
             if (minPos != i)
                 swap(arr, i, minPos);
@@ -102,9 +102,9 @@ public class Selection {
         for (int i = 0; i < arr.length / 2; i++) {
             int minPos = i;
             int maxPos = i;
-            for (int k = i + 1; k < arr.length - i; k++) {
-                minPos = arr[k] < arr[minPos] ? k : minPos;
-                maxPos = arr[k] > arr[maxPos] ? k : maxPos;
+            for (int j = i + 1; j < arr.length - i; j++) {
+                minPos = arr[j] < arr[minPos] ? j : minPos;
+                maxPos = arr[j] > arr[maxPos] ? j : maxPos;
             }
             if (minPos != i)
                 swap(arr, i, minPos);
@@ -122,12 +122,12 @@ public class Selection {
      *
      * @param arr
      * @param i
-     * @param minPos
+     * @param j
      */
-    private static void swap(int[] arr, int i, int minPos) {
+    private static void swap(int[] arr, int i, int j) {
         int temp = arr[i];
-        arr[i] = arr[minPos];
-        arr[minPos] = temp;
+        arr[i] = arr[j];
+        arr[j] = temp;
     }
 
     private static void print(int[] arr) {
